@@ -1,24 +1,19 @@
 class Solution:
     def maxVowels(self, s: str, k: int) -> int:
-        vowels = {'a', 'e', 'i', 'o', 'u'}
-        max_vowels = 0
-        current_vowels = 0
+        vowels = 'aeiou'
+        currentVowelsCount = 0
+
+        for char in s[:k]:
+            if char in vowels:
+                currentVowelsCount += 1
         
-        # Count vowels in the first window
-        for i in range(k):
-            if s[i] in vowels:
-                current_vowels += 1
-        max_vowels = current_vowels
+        maxVowelsCount = currentVowelsCount
+
+        i = 0
         
-        # Slide the window over the rest of the string
-        for i in range(k, len(s)):
-            # Remove the effect of the character that is sliding out of the window
-            if s[i - k] in vowels:
-                current_vowels -= 1
-            # Add the effect of the character that is sliding into the window
-            if s[i] in vowels:
-                current_vowels += 1
-            # Update the maximum number of vowels found
-            max_vowels = max(max_vowels, current_vowels)
+        while i < (len(s) - k):
+            currentVowelsCount = currentVowelsCount - (s[i] in vowels) + (s[i + k] in vowels)
+            maxVowelsCount = max(currentVowelsCount, maxVowelsCount)
+            i += 1
         
-        return max_vowels
+        return maxVowelsCount
