@@ -1,7 +1,7 @@
 from collections import Counter
 class Solution:
     def longestPalindrome(self, s: str) -> int:
-        char_c = Counter(s)
+        char_c  = Counter(s)
 
         long_pal = 0
         odd_c = False
