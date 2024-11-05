@@ -6,4 +6,3 @@ class Solution:
         i = k % len(nums)
         nums[:] = nums[-i:] + nums[:-i]
         return nums
-        
