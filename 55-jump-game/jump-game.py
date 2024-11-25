@@ -4,8 +4,16 @@ class Solution:
         for n in nums:
             if gas < 0:
                 return False
-            elif n > gas:
+            elif gas < n:
                 gas = n
-            gas -= 1
-            
+            gas-=1
         return True
+
+            
+
+            
+
+
+
+
+        
