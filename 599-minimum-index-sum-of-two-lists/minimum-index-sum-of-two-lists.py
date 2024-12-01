@@ -7,9 +7,6 @@ class Solution:
                 if list1[i] == list2[j] and list[i] not in words:
                     val = i + j
                     words[list1[i]] = val
-                elif list1[i] == list2[j]:
-                    val = i + j
-                    words[list1[i]] = val
         mini = min(words.values())
         print(words)
         for key, value in words.items():
