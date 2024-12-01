@@ -3,9 +3,7 @@ class Solution:
         words = {}
         out = []
         for i in range(len(list1)):
-           for j in range(len(list2)):
-                
-               
+           for j in range(len(list2)):    
                 if list1[i] == list2[j] and list[i] not in words:
                     val = i + j
                     words[list1[i]] = val
