@@ -1,24 +1,13 @@
 class Solution:
     def isPrefixOfWord(self, sentence: str, searchWord: str) -> int:
-        pos = 0
-        sen = sentence.split()
-        for i in range(len(sen)):
-            word = sen[i]
-            n = ""
-            if len(word) < len(searchWord):
-                continue
-            l = 0
-            while l < len(searchWord):
-                if word[l] == searchWord[l]:
-                    n+=word[l]
-                if n == searchWord:
-                    pos = i+1
-                    return pos
-                l+=1
-        return -1
-
-
-
-
-
+        # Split the sentence into words
+        words = sentence.split(" ")
         
+        # Iterate over the words
+        for i, word in enumerate(words):
+            # Check if the word starts with the searchWord
+            if word.startswith(searchWord):
+                return i + 1  # Return 1-based index
+        
+        # Return -1 if no word starts with the searchWord
+        return -1
